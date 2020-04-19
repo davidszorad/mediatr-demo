@@ -25,7 +25,14 @@ namespace MediatrDemo.Pages
 
         public async Task OnPostAsync()
         {
-            await _mediator.Send(new AddAddressRequest());
+            var addAddressRequest = new AddAddressRequest
+            {
+                UserId = 1,
+                City = "Bratislava",
+                PostalCode = "82103",
+                StreetAddress = "Ruzinovska"
+            };
+            await _mediator.Send(addAddressRequest);
         }
     }
 }
