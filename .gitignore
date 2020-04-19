@@ -351,3 +351,8 @@ MigrationBackup/
 
 # Rider
 .idea/
+**/.idea/
+
+# VS Code
+.DS_Store?
+.DS_Store
