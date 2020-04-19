@@ -18,6 +18,18 @@ namespace MediatrDemo.Handlers.AddAddress
 
     public class AddressAddedEvent : INotification
     {
+        public int UserId { get; }
+        public string City { get; }
+        public string PostalCode { get; }
+        public string StreetAddress { get; }
+
+        internal AddressAddedEvent(int userId, string city, string postalCode, string streetAddress)
+        {
+            UserId = userId;
+            City = city;
+            PostalCode = postalCode;
+            StreetAddress = streetAddress;
+        }
     }
 
     public class NotoficationHandler1 : INotificationHandler<AddressAddedEvent>
@@ -51,7 +63,8 @@ namespace MediatrDemo.Handlers.AddAddress
         {
             // entry point -> from there send an event -> in NotoficationHandlers process that event
             // it's a good way of breaking up a complicated logic into multiple steps
-            await _mediator.Publish(new AddressAddedEvent(), cancellationToken);
+            var addressAddedEvent = new AddressAddedEvent(request.UserId, request.City, request.PostalCode, request.StreetAddress);
+            await _mediator.Publish(addressAddedEvent, cancellationToken);
             return new AddAddressResponse();
         }
     }
