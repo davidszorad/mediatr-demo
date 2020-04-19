@@ -49,7 +49,7 @@ namespace MediatrDemo.Handlers.AddAddress
         
         public async Task<AddAddressResponse> Handle(AddAddressRequest request, CancellationToken cancellationToken)
         {
-            // entry point -> from there send and event -> in NotoficationHandlers process those events
+            // entry point -> from there send an event -> in NotoficationHandlers process that event
             // it's a good way of breaking up a complicated logic into multiple steps
             await _mediator.Publish(new AddressAddedEvent(), cancellationToken);
             return new AddAddressResponse();
