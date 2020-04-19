@@ -32,7 +32,7 @@ namespace MediatrDemo.Handlers.AddAddress
         }
     }
 
-    public class NotoficationHandler1 : INotificationHandler<AddressAddedEvent>
+    public class NotificationHandler1 : INotificationHandler<AddressAddedEvent>
     {
         public Task Handle(AddressAddedEvent notification, CancellationToken cancellationToken)
         {
@@ -41,7 +41,7 @@ namespace MediatrDemo.Handlers.AddAddress
         }
     }
     
-    public class NotoficationHandler2 : INotificationHandler<AddressAddedEvent>
+    public class NotificationHandler2 : INotificationHandler<AddressAddedEvent>
     {
         public Task Handle(AddressAddedEvent notification, CancellationToken cancellationToken)
         {
